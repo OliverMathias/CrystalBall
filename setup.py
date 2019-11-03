@@ -1,14 +1,14 @@
 from distutils.core import setup
 setup(
-  name = 'Crystal_Ball',         # How you named your package folder (MyLib)
-  packages = ['Crystal_Ball'],   # Chose the same as "name"
+  name = 'Predictionary',         # How you named your package folder (MyLib)
+  packages = ['Predictionary'],   # Chose the same as "name"
   version = '0.1',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'A python package that allows for the easy creation of LSTM text prediction datasets',   # Give a short description about your library
   author = 'Oliver Mathias',                   # Type in your name
   author_email = 'mathias@chapman.edu',      # Type in your E-Mail
-  url = 'https://github.com/OliverMathias/CrystalBall',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/OliverMathias/CrystalBall/archive/v0.1.tar.gz',    # I explain this later on
+  url = 'https://github.com/OliverMathias/Predictionary',   # Provide either the link to your github or to your website
+  download_url = 'https://github.com/OliverMathias/Predictionary/archive/v0.1.tar.gz',    # I explain this later on
   keywords = ['LSTM', 'pipeline', 'data', 'text', 'prediction'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'tika',

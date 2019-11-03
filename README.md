@@ -1,4 +1,4 @@
-# CrystalBall
+# Predictionary
 A python package that allows for the easy creation of LSTM text prediction datasets. With just a few lines of code,
 you can begin training your network on PDFs, .txt files, and UTF-8 hosted raw text online!
 
@@ -15,16 +15,16 @@ you can begin training your network on PDFs, .txt files, and UTF-8 hosted raw te
 ## Install
 The easiest way to install this package is to simply use pip
 ```
-pip install CrystalBall
+pip install predictionary
 ```
 You could also just as easily clone this repo.
 
 ## Import
-The following lines import all classes and methods from the CrystalBall package.
+The following lines import all classes and methods from the predictionary package.
 ```
-from CrystalBall.Source import load_raw_text
-from CrystalBall.Data import process_text, word_to_int, int_to_word, make_data, make_sentences, encode_sentences
-from CrystalBall.Visualize import make_prevelence_dict, plot_top
+from predictionary.Source import load_raw_text
+from predictionary.Data import process_text, word_to_int, int_to_word, make_data, make_sentences, encode_sentences
+from predictionary.Visualize import make_prevelence_dict, plot_top
 ```
 Let's go through the features, one method at a time.
 
