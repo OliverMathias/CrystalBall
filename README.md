@@ -20,11 +20,11 @@ pip install predictionary
 You could also just as easily clone this repo.
 
 ## Import
-The following lines import all classes and methods from the predictionary package.
+The following lines import all classes and methods from the Predictionary package.
 ```
-from predictionary.Source import load_raw_text
-from predictionary.Data import process_text, word_to_int, int_to_word, make_data, make_sentences, encode_sentences
-from predictionary.Visualize import make_prevelence_dict, plot_top
+from Predictionary.Source import load_raw_text
+from Predictionary.Data import process_text, word_to_int, int_to_word, make_data, make_sentences, encode_sentences
+from Predictionary.Visualize import make_prevelence_dict, plot_top
 ```
 Let's go through the features, one method at a time.
 
