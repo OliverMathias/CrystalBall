@@ -1,6 +1,5 @@
 ##methods make_prevelence_dict, plotTop
 #IMPORTS
-
 import sys
 import numpy as np
 from numpy import newaxis
