@@ -1,3 +1,5 @@
+<img src="https://media.giphy.com/media/26AHE5D3mbfAm1M4M/giphy.gif"  align=right  />
+
 # Predictionary
 A python package that allows for the easy creation of LSTM text prediction datasets. With just a few lines of code,
 you can begin training your network on PDFs, .txt files, and UTF-8 hosted raw text online!
