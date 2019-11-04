@@ -72,6 +72,7 @@ Let's go through the features, one method at a time.
   **Arguments**
    * **text** - The first argument to pass is the raw text string that was returned from the "Source" class.
    * **split_by_words** - This argument will determine if the package splits up the text by words or by characters.
+   * **keep_spaces** - The final argument in this method determines if the input data should contain spaces, or simply the words / chars.
 
   <br>
 
@@ -98,6 +99,19 @@ Let's go through the features, one method at a time.
     ['t', 'h', 'e', ' ', 'p', 'r', 'o', 'j', 'e', 'c', 't', ' ', 'g', 'u', 't', 'e', 'n', ...]
     ```
     In this example we split the raw text by characters.
+
+  * #### split_by_words = True, keep_spaces=False
+
+    Example Usage:
+    ```
+    fully_processed_text = process_text(text, split_by_words=False)
+    ```
+    Returns:
+    ```
+    ['the', 'project', 'gutenberg', 'ebook', 'of', 'adventures', 'of', 'huckleberry', ...]
+    ```
+    In this example we wanted just the words with no spaces.
+
 
 * ### word_to_int
   This method serves to create a dictionary for the word_to_int process necessary for our data to flow into an LSTM architecture.

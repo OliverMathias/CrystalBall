@@ -173,7 +173,7 @@ def kill_punctuation(s):
 #check if the word contains unwanted punctuation
 def contains_punctuation(word):
  #punctuation we don't want
- chars = set("][-.,!?:\"';)(")
+ chars = set("][-.,!?:_\"';)(")
 
  if len(word) > 1:
    #only checking here if there is punct we don't want at the beginning or end of the word.
@@ -193,7 +193,7 @@ def intersperse(lst, item):
 #the stripped word and the char, in the right order as a list
 def split_up_punctuation(word):
  #punctuation we don't want
- chars = set("][-.,!?:\"';)(")
+ chars = set("][-.,!?:_\"';)(")
  return_list = []
 
  #if we have punct in the first char
@@ -223,16 +223,15 @@ def split_up_punctuation(word):
 #make a function that turns the text into a huge list of lowercase words without periods, exclamation marks, or quotes, or commas
 #if, while adding to new list, we run into a word with any of these, just use the kill punct function and append that char to the
 #list afterwords.
-def process_text(text, split_by_words=True):
+def process_text(text, split_by_words=True, keep_spaces=False):
  #take the clean text and make a LIST of clean words
  raw_split_text = text.splitlines()
  clean_text_list = []
  for exerpt in raw_split_text:
-   #split each line into individual words, WHILE PRESERVING SPACES
-   #temp_list  = list(chain(*zip(exerpt.split(), cycle(' '))))[:-1]
    temp_list = exerpt.split()
    #this part adds a space betweem each list item so we can predict real sentence structures
-   temp_list = intersperse(temp_list, " ")
+   if keep_spaces:
+       temp_list = intersperse(temp_list, " ")
    if split_by_words:
      for word in temp_list:
        #check if word has punctiation
