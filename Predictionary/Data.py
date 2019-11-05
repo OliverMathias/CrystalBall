@@ -70,7 +70,7 @@ def progressbar(it, prefix="", size=60, file=sys.stdout):
     file.write("\n")
     file.flush()
 
-def make_data(fully_processed_text, int_to_word_dictionary, sequence_length=50, X_one_hot=False, split_train_test=True, test_train_split_ratio=0.33, save_locally=True):
+def make_data(fully_processed_text, int_to_word_dictionary, sequence_length=50, X_one_hot=False, Y_one_hot=True, split_train_test=True, test_train_split_ratio=0.33, save_locally=True):
   #print("Creating Test & Train Datasets @ Sequence Length: ", sequence_length)
   start_index = 0
   end_and_answer = sequence_length
@@ -109,11 +109,12 @@ def make_data(fully_processed_text, int_to_word_dictionary, sequence_length=50, 
       X_train = np.array(X_train)
       X_test = np.array(X_test)
       Y_train = np.array(Y_train)
-      Y_train = np.array(Y_train)
+      Y_test = np.array(Y_test)
 
-      #turning the  target vars to categorical
-      Y_train = to_categorical(Y_train, num_classes=n_unique_words, dtype='float32')
-      Y_test = to_categorical(Y_test, num_classes=n_unique_words, dtype='float32')
+      if Y_one_hot:
+          #turning the  target vars to categorical
+          Y_train = to_categorical(Y_train, num_classes=n_unique_words, dtype='float32')
+          Y_test = to_categorical(Y_test, num_classes=n_unique_words, dtype='float32')
 
       if X_one_hot:
         print("Setting X data to one-hot")
@@ -143,8 +144,9 @@ def make_data(fully_processed_text, int_to_word_dictionary, sequence_length=50, 
       X = np.array(x_data)
       Y = np.array(y_data)
 
-      #turning the  target vars to categorical
-      Y = to_categorical(Y, num_classes=n_unique_words, dtype='float32')
+      if Y_one_hot:
+        #turning the  target vars to categorical
+        Y = to_categorical(Y, num_classes=n_unique_words, dtype='float32')
 
       if X_one_hot:
         X = to_categorical(X, num_classes=n_unique_words, dtype='float32')

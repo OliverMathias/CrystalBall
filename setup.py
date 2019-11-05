@@ -12,7 +12,7 @@ setup(
   author = 'Oliver Mathias',                   # Type in your name
   author_email = 'mathias@chapman.edu',      # Type in your E-Mail
   url = 'https://github.com/OliverMathias/Predictionary',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/OliverMathias/Predictionary/archive/v0.1.1.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/OliverMathias/Predictionary/archive/v0.1.2.tar.gz',    # I explain this later on
   keywords = ['LSTM', 'pipeline', 'data', 'text', 'prediction'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'tika',
