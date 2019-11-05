@@ -154,6 +154,7 @@ Let's go through the features, one method at a time.
    * **int_to_word_dictionary** - Pass in the int_to_word_dictionary from the int_to_word         dictionary creating method.
    * **sequence_length** - The length of chars/words you want each training example to be.
    * **X_one_hot** - A boolean value to determine if you want your training sequences to be passed to your network in the form of ints or one-hot-arrays.
+   * **Y_one_hot** - A boolean value to determine if you want your target data to be passed to your network in the form of ints or one-hot-arrays.
    * **split_train_test** - A Boolean that if set to True, the method will pass back data split into X_train, Y_train, X_test, Y_test form, OR if set to False, will pass back data in the X, Y form.
    * **test_train_split_ratio** - A float value that allows the user to set the ratio of testing data to training data.
    * **save_locally** - A boolean value that if set to True, will save created arrays in .npy format locally.
@@ -228,15 +229,13 @@ Let's go through the features, one method at a time.
        ]
 
   y_train.shape:
-  (574735, 60)
+  (574735, 1)
 
   y_train[0]:
-  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-   0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-   0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [128]
 
   ```
-  In the above example we created our data to contain 69 chars/words per sequence, be NOT one-hot encoded, NOT be split into test and train datasets, and to be saved to our local machine.
+  In the above example we created our data to contain 69 chars/words per sequence, be NOT one-hot encoded, for Y NOT to be one-hot encoded, NOT be split into test and train datasets, and to be saved to our local machine.
 
 * ### make_sentences
   This method was a bit of an afterthought in this package, and was included upon the request of a friend. It splits the fully_processed_text into sentences by identifying splitter locations through chars like [. ! ?]
