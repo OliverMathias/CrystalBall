@@ -11,7 +11,7 @@ you can begin training your network on PDFs, .txt files, and UTF-8 hosted raw te
 * [Source](#source)
 * [Data](#data)
 * [Visualize](#visualize)
-* [Example](#example)
+* [Results](#Results)
 * [License](#license)
 
 ## Install
@@ -304,6 +304,62 @@ Let's go through the features, one method at a time.
   ![](https://i.imgur.com/O3l6NCn.png)
 
 
+## Results
+For the following example, I used Predictionary to pull data from project gutenberg on 5 books. Moby Dick, Alice in Wonderland, Huckleberry Finn, The Strange Case of Dr. Jekyll and Mr. Hyde, and the Iliad. These books totaled over 3,000,000 sequence examples for the network to learn. I used a 2 layer LSTM with over 200,000 weights and the following architecture...
+```
+Model: "model_3"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_4 (InputLayer)            (None, 50, 1)        0                                            
+__________________________________________________________________________________________________
+permute_4 (Permute)             (None, 1, 50)        0           input_4[0][0]                    
+__________________________________________________________________________________________________
+dense_9 (Dense)                 (None, 1, 50)        2550        permute_4[0][0]                  
+__________________________________________________________________________________________________
+attention_prob (Permute)        (None, 50, 1)        0           dense_9[0][0]                    
+__________________________________________________________________________________________________
+multiply_4 (Multiply)           (None, 50, 1)        0           input_4[0][0]                    
+                                                                 attention_prob[0][0]             
+__________________________________________________________________________________________________
+lstm_7 (LSTM)                   (None, 50, 128)      66560       multiply_4[0][0]                 
+__________________________________________________________________________________________________
+dropout_7 (Dropout)             (None, 50, 128)      0           lstm_7[0][0]                     
+__________________________________________________________________________________________________
+lstm_8 (LSTM)                   (None, 128)          131584      dropout_7[0][0]                  
+__________________________________________________________________________________________________
+dropout_8 (Dropout)             (None, 128)          0           lstm_8[0][0]                     
+__________________________________________________________________________________________________
+dense_10 (Dense)                (None, 100)          12900       dropout_8[0][0]                  
+__________________________________________________________________________________________________
+dense_11 (Dense)                (None, 70)           7070        dense_10[0][0]                   
+==================================================================================================
+Total params: 220,664
+Trainable params: 220,664
+Non-trainable params: 0
+```
+This network was EXTREMELY slow to train on my machine so I capped the number of epochs to about 35, which came out to around 40 hours.
+
+Here are a few input seeds, and the computer's predictions...
+
+Input:
+```
+"The old woman talked surgeon's astronomy in the back country, and by j..."
+```
+Output:
+```
+"...ove the soul the last the milking of the contrast in the coursers he dropped it out the new charms"
+```
+
+Input:
+```
+"The old woman talked surgeon's astronomy in the back country, and by j..."
+```
+Output:
+```
+"...ove without paused great achilles lies and i show one murmer all brightly enough"
+```
+As you can see, not great or coherent by any stretch of the imagination, but not bad for a model that only sees 50 characters at a time and has >3M training examples.
 
 ## 📜 License
 
