@@ -25,7 +25,7 @@ You could also just as easily clone this repo.
 The following lines import all classes and methods from the Predictionary package.
 ```
 from predictionary.source import load_raw_text
-from predictionary.vata import process_text, word_to_int, int_to_word, make_data, make_sentences, encode_sentences
+from predictionary.data import process_text, word_to_int, int_to_word, make_data, make_sentences, encode_sentences
 from predictionary.visualize import make_prevelence_dict, plot_top
 ```
 Let's go through the features, one method at a time.
